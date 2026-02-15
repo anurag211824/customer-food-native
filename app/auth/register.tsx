@@ -1,9 +1,35 @@
 import { useAuth } from "@/context/auth-context";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert, Button, Text, TextInput, View } from "react-native";
+import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
+
+const styles = StyleSheet.create({
+  logoContainer: {
+    alignItems: "center",
+    marginBottom: 36,
+  },
+  logoIcon: {
+    fontSize: 48,
+    marginBottom: 8,
+  },
+  logoText: {
+    fontSize: 32,
+    fontWeight: "800",
+    color: "#222",
+    letterSpacing: 1,
+  },
+  logoHighlight: {
+    color: "#DB4437",
+  },
+  logoTagline: {
+    fontSize: 14,
+    color: "#888",
+    marginTop: 4,
+    fontStyle: "italic",
+  },
+});
 
 export default function Register() {
   const router = useRouter();
@@ -39,6 +65,14 @@ export default function Register() {
 
   return (
     <View style={{ padding: 20, flex: 1, justifyContent: "center" }}>
+      {/* Logo */}
+      <View style={styles.logoContainer}>
+        <Text style={styles.logoIcon}>🍽️</Text>
+        <Text style={styles.logoText}>
+          Brainy<Text style={styles.logoHighlight}>Food</Text>
+        </Text>
+        <Text style={styles.logoTagline}>Smart eats, happy treats</Text>
+      </View>
       {/* Name */}
       <Text style={{ marginBottom: 4, fontWeight: "600" }}>Full Name</Text>
       <TextInput
